@@ -1,0 +1,27 @@
+# Spring properties
+spring:
+  application:
+     name: customer-service  # Service registers under this name
+
+info:
+  app:
+    name: customer-service
+    description: Customer Service API
+    version: 1.0.0
+
+# HTTP Server
+server:
+  contextPath: /customer-service
+  port: 3333   # HTTP (Tomcat) port
+
+# Discovery Server Access
+#  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
+#  2. Define URL of registration server (defaultZone)
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+    statusPageUrlPath: /customer-service/info
+    healthCheckUrlPath: /customer-service/health

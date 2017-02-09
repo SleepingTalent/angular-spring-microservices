@@ -1,0 +1,25 @@
+# Spring properties
+spring:
+  application:
+     name: customer-web-2  # Service registers under this name
+
+info:
+  app:
+    name: customer-web-2
+    description: Customer Web 2
+    version: 1.0.0
+
+# HTTP Server
+server:
+  contextPath: /customer-web-2
+  port: 4444   # HTTP (Tomcat) port
+
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:1111/eureka/
+    instance:
+      leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+      statusPageUrlPath: /customer-web-2/info
+      healthCheckUrlPath: /customer-web-2/health
+
