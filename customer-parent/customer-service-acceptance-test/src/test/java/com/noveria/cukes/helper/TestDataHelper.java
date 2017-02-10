@@ -1,7 +1,7 @@
 package com.noveria.cukes.helper;
 
-import com.babcock.model.customer.Customer;
-import com.babcock.model.customer.CustomerRepository;
+import com.noveria.model.customer.Customer;
+import com.noveria.model.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

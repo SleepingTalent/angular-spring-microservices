@@ -1,6 +1,6 @@
 package com.noveria.cukes.runtime;
 
-import com.babcock.model.customer.Customer;
+import com.noveria.model.customer.Customer;
 import cucumber.api.Scenario;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.noveria.cukes.helper;
 
 import com.noveria.cukes.runtime.RuntimeState;
-import com.babcock.model.customer.Customer;
+import com.noveria.model.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;

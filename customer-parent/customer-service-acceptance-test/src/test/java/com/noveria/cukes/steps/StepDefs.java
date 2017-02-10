@@ -3,7 +3,7 @@ package com.noveria.cukes.steps;
 import com.noveria.cukes.helper.TestDataHelper;
 import com.noveria.cukes.helper.RestHelper;
 import com.noveria.cukes.runtime.RuntimeState;
-import com.babcock.model.customer.Customer;
+import com.noveria.model.customer.Customer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;

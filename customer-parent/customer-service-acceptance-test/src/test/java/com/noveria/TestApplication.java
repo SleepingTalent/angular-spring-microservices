@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 
 @EnableAutoConfiguration
 @Import(TestConfiguration.class)
-@ComponentScan({"com.babcock.controller","com.babcock.cukes"})
+@ComponentScan({"com.noveria.controller","com.noveria.cukes"})
 public class TestApplication {
 
     public static void main(String[] args) {

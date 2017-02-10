@@ -14,8 +14,8 @@ import javax.sql.DataSource;
 import java.util.logging.Logger;
 
 @Configuration
-@EntityScan("com.babcock.model.customer")
-@EnableJpaRepositories("com.babcock.model.customer")
+@EntityScan("com.noveria.model.customer")
+@EnableJpaRepositories("com.noveria.model.customer")
 @PropertySource("classpath:test-db-config.properties")
 public class TestConfiguration {
 

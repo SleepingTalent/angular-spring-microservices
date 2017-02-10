@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 @EnableAutoConfiguration
 @EnableDiscoveryClient
 @Import(CustomerServiceConfiguration.class)
-@ComponentScan("com.babcock.controller")
+@ComponentScan("com.noveria.controller")
 public class CustomerServiceApplication {
 
     public static void main(String[] args) {
