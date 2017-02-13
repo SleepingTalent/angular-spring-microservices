@@ -31,7 +31,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.babcock.web</groupId>
+			<groupId>com.noveria.web</groupId>
 			<artifactId>customer-web-angular</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 			<scope>runtime</scope>

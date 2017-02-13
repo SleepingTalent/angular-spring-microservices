@@ -46,7 +46,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.babcock.service</groupId>
+			<groupId>com.noveria.service</groupId>
 			<artifactId>customer-service</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
