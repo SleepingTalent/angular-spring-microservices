@@ -28,7 +28,7 @@ public class CustomerController {
         Customer customer = customerRepository.findOne(id);
 
         if (customer == null)
-            throw new CustomerNotFoundException("No customer found with id: "+id);
+            throw new CustomerNotFoundException("No customer found with id: " + id);
         else {
             logger.info("customer-service findById() found: " + customer);
             return customer;
@@ -43,7 +43,7 @@ public class CustomerController {
         List<Customer> customers = customerRepository.findByLastName(lastname);
 
         if (customers.isEmpty())
-            throw new CustomerNotFoundException("No customers found with lastname: "+lastname);
+            throw new CustomerNotFoundException("No customers found with lastname: " + lastname);
         else {
             logger.info("customer-service findByLastName() found: " + customers);
             return customers;
