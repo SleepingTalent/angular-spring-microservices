@@ -1,17 +1,17 @@
 # Spring properties
 spring:
   application:
-     name: customer-web-2  # Service registers under this name
+     name: customer-web  # Service registers under this name
 
 info:
   app:
-    name: customer-web-2
-    description: Customer Web 2
+    name: customer-web
+    description: Customer Web
     version: 1.0.0
 
 # HTTP Server
 server:
-  contextPath: /customer-web-2
+  contextPath: /customer-web
   port: 4444   # HTTP (Tomcat) port
 
 eureka:
@@ -20,6 +20,6 @@ eureka:
         defaultZone: http://localhost:1111/eureka/
     instance:
       leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
-      statusPageUrlPath: /customer-web-2/info
-      healthCheckUrlPath: /customer-web-2/health
+      statusPageUrlPath: /customer-web/info
+      healthCheckUrlPath: /customer-web/health
 

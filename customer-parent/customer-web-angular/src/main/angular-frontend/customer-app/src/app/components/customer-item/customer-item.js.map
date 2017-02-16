@@ -1,0 +1,1 @@
+{"version":3,"file":"customer-item.js","sourceRoot":"","sources":["customer-item.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,sCAA+C;AAC/C,oEAAyD;AAMzD,IAAqB,qBAAqB;IAA1C;IAEA,CAAC;IAAD,4BAAC;AAAD,CAAC,AAFD,IAEC;AADU;IAAR,YAAK,EAAE;8BAAW,2BAAQ;uDAAC;AADT,qBAAqB;IAJzC,gBAAS,CAAC;QACT,QAAQ,EAAE,eAAe;QACzB,WAAW,EAAE,iDAAiD;KAC/D,CAAC;GACmB,qBAAqB,CAEzC;;kBAFoB,qBAAqB"}
