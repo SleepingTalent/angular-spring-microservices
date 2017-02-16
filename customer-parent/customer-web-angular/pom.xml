@@ -26,7 +26,6 @@
                 <configuration>
                     <nodeVersion>v6.9.1</nodeVersion>
                     <npmVersion>4.0.3</npmVersion>
-                    <!--<workingDirectory>src/main/frontend</workingDirectory>-->
                     <workingDirectory>src/main/angular-frontend/customer-app</workingDirectory>
                 </configuration>
 
@@ -80,7 +79,6 @@
 
         <resources>
             <resource>
-                <!--<directory>target/frontend</directory>-->
                 <directory>target/customer-app</directory>
                 <targetPath>static</targetPath>
             </resource>
