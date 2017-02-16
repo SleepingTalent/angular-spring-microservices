@@ -1,5 +1,21 @@
 <div>
   <img src="http://placehold.it/820x320">
-  <h4>Customer {{customerId}} Details</h4>
-  <p>This would show additional details for Customer with Id {{customerId}}</p>
+  <h4>{{customer.firstName}} {{customer.lastName}} Details</h4>
+  <p>Show additional details for Customer with Id {{customer.id}}</p>
+  <div class="caption">
+    <div class="form-group">
+      <label class="control-label pull-left">Id:</label>
+      <span class="control-label pull-right">{{customer.id}}</span>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label class="control-label pull-left">Firstname:</label>
+      <span class="control-label pull-right">{{customer.firstName}}</span>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label class="control-label  pull-left">Lastname:</label>
+      <span class="control-label pull-right">{{customer.lastName}}</span>
+    </div>
+  </div>
 </div>
