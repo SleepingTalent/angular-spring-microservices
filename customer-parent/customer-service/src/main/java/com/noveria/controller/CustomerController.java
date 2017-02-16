@@ -49,4 +49,19 @@ public class CustomerController {
             return customers;
         }
     }
+
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Customer> findAll() {
+
+        logger.info("customer-service findAll() invoked: ");
+
+        List<Customer> customers = customerRepository.findAll();
+
+        if (customers.isEmpty())
+            throw new CustomerNotFoundException("No customers found");
+        else {
+            logger.info("customer-service findAll() found: " + customers);
+            return customers;
+        }
+    }
 }

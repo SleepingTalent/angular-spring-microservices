@@ -1,8 +1,19 @@
 <div class="thumbnail">
   <img src="http://placehold.it/320x150">
   <div class="caption">
-    <h4 class="pull-right">{{ customer.id }}</h4>
-    <p>{{ customer.firstname }}</p>
-    <p>{{ customer.lastname }}</p>
+    <div class="form-group">
+      <label class="control-label pull-left">Id:</label>
+      <span class="control-label pull-right">{{ customer.id }}</span>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label class="control-label pull-left">Firstname:</label>
+      <span class="control-label pull-right">{{ customer.firstName }}</span>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label class="control-label  pull-left">Lastname:</label>
+      <span class="control-label pull-right">{{ customer.lastName }}</span>
+    </div>
   </div>
 </div>

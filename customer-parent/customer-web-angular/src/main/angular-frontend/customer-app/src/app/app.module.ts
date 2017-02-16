@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { HttpModule }     from '@angular/http';
 import ApplicationComponent from './components/application/application';
 import CustomerItemComponent from "./components/customer-item/customer-item";
 import NavbarComponent from "./components/navbar/navbar";
@@ -10,7 +11,7 @@ import SearchComponent from "./components/search/search";
 import CarouselComponent from "./components/carousel/carousel";
 
 @NgModule({
-    imports:        [ AlertModule.forRoot(), BrowserModule ],
+    imports:        [ AlertModule.forRoot(), BrowserModule, HttpModule ],
     declarations:   [ ApplicationComponent, CustomerItemComponent,
                         NavbarComponent, FooterComponent,
                         SearchComponent, CarouselComponent],

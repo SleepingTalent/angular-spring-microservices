@@ -12,6 +12,6 @@ export default class ApplicationComponent {
     customers: Array<Customer> = [];
 
     constructor(private customerService: CustomerService) {
-        this.customers = this.customerService.getCustomers();
+       this.customerService.getCustomers().subscribe(data => this.customers = data);
     }
 }
