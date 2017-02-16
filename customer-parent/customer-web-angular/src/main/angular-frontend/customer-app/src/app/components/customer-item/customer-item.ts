@@ -3,6 +3,7 @@ import {Customer} from '../../services/customer-service';
 
 @Component({
   selector: 'customer-item',
+  styleUrls: ['customer-item.css'],
   templateUrl: 'customer-item.html'
 })
 export default class CustomerItemComponent {

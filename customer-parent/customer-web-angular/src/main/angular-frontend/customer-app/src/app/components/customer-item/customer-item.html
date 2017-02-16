@@ -3,7 +3,7 @@
   <div class="caption">
     <div class="form-group">
       <label class="control-label pull-left">Id:</label>
-      <span class="control-label pull-right"><a>{{ customer.id }}</a></span>
+      <span class="control-label pull-right"><a [routerLink]="['/customer', customer.id]">{{ customer.id }}</a></span>
     </div>
     <br/>
     <div class="form-group">
