@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
+import { ReactiveFormsModule} from '@angular/forms';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { HttpModule }     from '@angular/http';
@@ -13,6 +14,7 @@ import SearchComponent from "./components/search/search";
 import CarouselComponent from "./components/carousel/carousel";
 import HomeComponent from "./components/home/home";
 import CustomerDetailComponent from "./components/customer-detail/customer-detail";
+import {FilterPipe} from "./components/pipes/filter-pipe";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -20,11 +22,10 @@ const routes: Routes = [
   ];
 
 @NgModule({
-    imports:        [ AlertModule.forRoot(), BrowserModule, HttpModule, RouterModule.forRoot(routes)],
-    declarations:   [ ApplicationComponent, CustomerItemComponent,
-                        NavbarComponent, FooterComponent,
-                        SearchComponent, CarouselComponent,
-                        HomeComponent, CustomerDetailComponent],
+    imports:        [ AlertModule.forRoot(), BrowserModule, HttpModule, ReactiveFormsModule, RouterModule.forRoot(routes)],
+    declarations:   [ ApplicationComponent, CustomerItemComponent, NavbarComponent,
+                      FooterComponent, SearchComponent, CarouselComponent,
+                        HomeComponent, CustomerDetailComponent, FilterPipe],
     providers:      [ CustomerService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap:      [ ApplicationComponent ]
 })
