@@ -1,21 +1,20 @@
 <div>
   <img src="http://placehold.it/820x320">
-  <h4>{{customer.firstName}} {{customer.lastName}} Details</h4>
-  <p>Show additional details for Customer with Id {{customer.id}}</p>
+  <h4>{{customer.title}} {{customer.lastName}} Details</h4>
   <div class="caption">
     <div class="form-group">
-      <label class="control-label pull-left">Id:</label>
-      <span class="control-label pull-right">{{customer.id}}</span>
+      <label class="control-label pull-left">Customer:</label>
+      <span class="control-label pull-right">{{customer.title}} {{customer.lastName}}</span>
     </div>
     <br/>
     <div class="form-group">
-      <label class="control-label pull-left">Firstname:</label>
-      <span class="control-label pull-right">{{customer.firstName}}</span>
+      <label class="control-label  pull-left">Date Of Birth:</label>
+      <span class="control-label pull-right">{{customer.dateOfBirth}}</span>
     </div>
     <br/>
     <div class="form-group">
-      <label class="control-label  pull-left">Lastname:</label>
-      <span class="control-label pull-right">{{customer.lastName}}</span>
+      <label class="control-label  pull-left">Description:</label>
+      <span class="control-label pull-right">{{customer.description}}</span>
     </div>
   </div>
 </div>

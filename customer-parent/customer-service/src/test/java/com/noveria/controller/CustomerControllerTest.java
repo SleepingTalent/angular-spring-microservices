@@ -1,6 +1,5 @@
 package com.noveria.controller;
 
-import com.noveria.controller.CustomerController;
 import com.noveria.exception.CustomerNotFoundException;
 import com.noveria.model.customer.Customer;
 import com.noveria.model.customer.CustomerRepository;
@@ -38,7 +37,7 @@ public class CustomerControllerTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("first", "last");
+        customer = new Customer("Mr", "first", "last", "16/06/1982", "testDesc");
     }
 
     @Test
@@ -86,7 +85,10 @@ public class CustomerControllerTest {
     }
 
     private void assertCustomer(Customer actual) {
+        assertEquals(customer.getTitle(),actual.getTitle());
         assertEquals(customer.getFirstName(),actual.getFirstName());
         assertEquals(customer.getLastName(),actual.getLastName());
+        assertEquals(customer.getDateOfBirth(),actual.getDateOfBirth());
+        assertEquals(customer.getDescription(),actual.getDescription());
     }
 }

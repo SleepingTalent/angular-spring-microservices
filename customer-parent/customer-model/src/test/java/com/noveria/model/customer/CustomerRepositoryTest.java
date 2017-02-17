@@ -30,7 +30,7 @@ public class CustomerRepositoryTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("first", "last");
+        customer = new Customer("Mr", "first", "last", "16/10/1967", "testDesc");
         entityManager.persist(customer);
     }
 

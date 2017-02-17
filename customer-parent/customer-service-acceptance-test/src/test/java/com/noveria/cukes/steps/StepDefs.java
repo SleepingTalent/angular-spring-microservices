@@ -44,7 +44,7 @@ public class StepDefs extends AbstractStep {
 
     @Given("^a customer exists$")
     public void aCustomerExists() throws Throwable {
-       Customer customer = testDataHelper.createCustomer("Dollie","Schnidt");
+       Customer customer = testDataHelper.createCustomer("Mrs", "Dollie","Schnidt", "01/01/1950", "testDesc");
        runtimeState.setCustomerTestData(customer);
     }
 
@@ -59,8 +59,11 @@ public class StepDefs extends AbstractStep {
     @Then("^the expected customer is returned$")
     public void theExpectedCustomerIsReturned() throws Throwable {
         assertThat(runtimeState.getCustomer().getId()).isEqualTo(runtimeState.getCustomerTestData().getId());
+        assertThat(runtimeState.getCustomer().getTitle()).isEqualTo(runtimeState.getCustomerTestData().getTitle());
         assertThat(runtimeState.getCustomer().getFirstName()).isEqualTo(runtimeState.getCustomerTestData().getFirstName());
         assertThat(runtimeState.getCustomer().getLastName()).isEqualTo(runtimeState.getCustomerTestData().getLastName());
+        assertThat(runtimeState.getCustomer().getDateOfBirth()).isEqualTo(runtimeState.getCustomerTestData().getDateOfBirth());
+        assertThat(runtimeState.getCustomer().getDescription()).isEqualTo(runtimeState.getCustomerTestData().getDescription());
     }
 
     @When("^the user accesses the customer API with a valid lastname$")

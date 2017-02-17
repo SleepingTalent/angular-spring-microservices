@@ -5,8 +5,11 @@ import {Observable} from "rxjs";
 export class Customer {
     constructor(
         public id?: number,
+        public title?: string,
         public firstName?: string,
-        public lastName?: string) {}
+        public lastName?: string,
+        public dateOfBirth?: string,
+        public description?: string) {}
 }
 
 @Injectable()

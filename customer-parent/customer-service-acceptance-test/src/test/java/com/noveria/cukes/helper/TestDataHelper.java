@@ -11,8 +11,8 @@ public class TestDataHelper {
     @Autowired
     CustomerRepository customerRepository;
 
-    public Customer createCustomer(String firstName, String lastName) {
-        Customer customer = new Customer(firstName, lastName);
+    public Customer createCustomer(String title, String firstName, String lastName, String dateOfBirth, String description) {
+        Customer customer = new Customer(title, firstName, lastName, dateOfBirth, description);
         return customerRepository.save(customer);
     }
 
