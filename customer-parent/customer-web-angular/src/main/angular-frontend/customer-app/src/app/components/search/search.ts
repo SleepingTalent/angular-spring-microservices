@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component} from '@angular/core';
 import {CustomerService} from "../../services/customer-service";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {SearchEventService} from "../../services/search-event-service";
