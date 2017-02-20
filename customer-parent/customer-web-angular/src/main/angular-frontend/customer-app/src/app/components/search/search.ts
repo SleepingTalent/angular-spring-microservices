@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import {CustomerService} from "../../services/customer-service";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {SearchEventService} from "../../services/search-event-service";
 
 @Component({
   selector: 'customer-search',
@@ -8,19 +9,20 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
   templateUrl: 'search.html'
 })
 export default class SearchComponent {
-  formModel: FormGroup;
+  formGroup: FormGroup;
 
-  constructor(private customerService : CustomerService) {
+  constructor(private searchEventService : SearchEventService) {
     const formBuilder = new FormBuilder();
 
-    this.formModel = formBuilder.group({
-      'lastName': [null, Validators.minLength(3)]
+    this.formGroup = formBuilder.group({
+      lastName: [null, Validators.minLength(3)]
     })
   }
 
   onSearch() {
-    if (this.formModel.valid) {
-      console.log(this.formModel.value);
+    if (this.formGroup.valid) {
+      console.log(this.formGroup.get('lastName').value);
+      this.searchEventService.sendLastNameSearchEvent(this.formGroup.get('lastName').value);
     }
   }
 }

@@ -1,8 +1,8 @@
-<form [formGroup]="formModel" (ngSubmit)="onSearch()" novalidate>
-  <div class="form-group" [class.has-error]="formModel.hasError('minlength', 'lastName')">
+<form [formGroup]="formGroup" (ngSubmit)="onSearch()" novalidate>
+  <div class="form-group" [class.has-error]="formGroup.hasError('minlength', 'lastName')">
     <label for="lastName">Customer Search:</label>
     <input id="lastName" placeholder="Search For Lastname" class="form-control" type="text" formControlName="lastName" minlength="3">
-    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'lastName')">
+    <span class="help-block" [class.hidden]="!formGroup.hasError('minlength', 'lastName')">
       Type at least 3 characters
     </span>
   </div>
