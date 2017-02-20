@@ -1,7 +1,7 @@
 package com.noveria.cukes.steps;
 
-import com.noveria.cukes.helper.TestDataHelper;
 import com.noveria.cukes.helper.RestHelper;
+import com.noveria.cukes.helper.TestDataHelper;
 import com.noveria.cukes.runtime.RuntimeState;
 import com.noveria.model.customer.Customer;
 import cucumber.api.Scenario;
@@ -12,9 +12,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.not;
 
 public class StepDefs extends AbstractStep {
 
@@ -48,6 +50,16 @@ public class StepDefs extends AbstractStep {
        runtimeState.setCustomerTestData(customer);
     }
 
+
+    @Given("^(\\d+) customers exist$")
+    public void customersExist(int numberOfCustomers) throws Throwable {
+        List<Customer> customers = new ArrayList<>();
+        for (int i = 0; i < numberOfCustomers; i++) {
+            customers.add(testDataHelper.createCustomer("Mrs", "Dollie_" + i, "Schnidt_" + i, "01/01/1950", "testDesc_" + i));
+        }
+        runtimeState.setAllCustomersTestData(customers);
+    }
+
     @When("^the user accesses the customer API with a valid id$")
     public void theUserAccessesTheCustomerAPIWithAValidId() throws Throwable {
         Customer customerTestData = runtimeState.getCustomerTestData();
@@ -74,5 +86,32 @@ public class StepDefs extends AbstractStep {
         assertThat(customers.size()).isEqualTo(1);
 
         runtimeState.setCustomer(customers.get(0));
+    }
+
+    @When("^the user accesses the customer API and requests all customers$")
+    public void theUserAccessesTheCustomerAPIAndRequestsAllCustomers() throws Throwable {
+        List<Customer> customers = restHelper.findAll();
+        runtimeState.setAllCustomers(customers);
+    }
+
+    @Then("^the expected customers are returned$")
+    public void theExpectedCustomersAreReturned() throws Throwable {
+        List<Customer> testDataCustomers = runtimeState.getAllCustomersTestData();
+        List<Customer> retrievedCustomers = runtimeState.getAllCustomers();
+
+        assertThat(not(retrievedCustomers.isEmpty()));
+        assertThat(retrievedCustomers.size()).isEqualTo(4);
+        assertThat(retrievedCustomers.get(0).getId()).isEqualTo(testDataCustomers.get(0).getId());
+        assertThat(retrievedCustomers.get(0).getTitle()).isEqualTo(testDataCustomers.get(0).getTitle());
+        assertThat(retrievedCustomers.get(0).getFirstName()).isEqualTo(testDataCustomers.get(0).getFirstName());
+        assertThat(retrievedCustomers.get(0).getLastName()).isEqualTo(testDataCustomers.get(0).getLastName());
+        assertThat(retrievedCustomers.get(0).getDateOfBirth()).isEqualTo(testDataCustomers.get(0).getDateOfBirth());
+        assertThat(retrievedCustomers.get(0).getDescription()).isEqualTo(testDataCustomers.get(0).getDescription());
+
+        assertThat(retrievedCustomers.get(1).getDescription()).isEqualTo(testDataCustomers.get(1).getDescription());
+        assertThat(retrievedCustomers.get(2).getDescription()).isEqualTo(testDataCustomers.get(2).getDescription());
+        assertThat(retrievedCustomers.get(3).getDescription()).isEqualTo(testDataCustomers.get(3).getDescription());
+
+        assertThat(retrievedCustomers.get(0).getDescription()).isNotEqualTo(retrievedCustomers.get(1).getDescription());
     }
 }

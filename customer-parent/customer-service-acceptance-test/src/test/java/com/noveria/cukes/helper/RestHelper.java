@@ -23,15 +23,19 @@ public class RestHelper {
     protected TestRestTemplate restTemplate;
 
     private String getCustomerUrl() {
-        return "http://"+runtimeState.getHost() + "/customer";
+        return "http://" + runtimeState.getHost() + "/customer";
     }
 
     private String buildFindByIdUrl(Long id) {
-        return getCustomerUrl()+"/id/"+id;
+        return getCustomerUrl() + "/id/" + id;
     }
 
     private String buildFindByLastNameUrl(String lastName) {
-        return getCustomerUrl()+"/lastname/"+lastName;
+        return getCustomerUrl() + "/lastname/" + lastName;
+    }
+
+    private String buildFindAll() {
+        return getCustomerUrl() + "/findAll";
     }
 
     public Customer findById(Long id) {
@@ -47,4 +51,12 @@ public class RestHelper {
 
         return Arrays.asList(response.getBody());
     }
+
+    public List<Customer> findAll() {
+        ResponseEntity<Customer[]> response = restTemplate.getForEntity(buildFindAll(), Customer[].class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        return Arrays.asList(response.getBody());
+    }
+
 }

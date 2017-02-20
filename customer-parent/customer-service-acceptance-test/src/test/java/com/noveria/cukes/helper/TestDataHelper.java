@@ -19,4 +19,8 @@ public class TestDataHelper {
     public void deleteCustomer(Customer customer) {
         customerRepository.delete(customer);
     }
+
+    public Customer getCustomerById(Long id) {
+        return customerRepository.findOne(id);
+    }
 }
