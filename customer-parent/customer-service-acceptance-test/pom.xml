@@ -86,18 +86,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>info.cukes</groupId>-->
-			<!--<artifactId>cukes-jvm</artifactId>-->
-			<!--<version>${cukes.version}</version>-->
-		<!--</dependency>-->
-
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-jvm-deps</artifactId>
-			<version>1.0.3</version>
-		</dependency>
-
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-core</artifactId>
