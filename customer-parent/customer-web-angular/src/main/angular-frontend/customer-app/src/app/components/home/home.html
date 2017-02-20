@@ -3,15 +3,16 @@
     <customer-carousel></customer-carousel>
   </div>
 </div>
+<!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+    <!--<div class="form-group">-->
+      <!--<input placeholder="Filter by Lastname" class="form-control" type="text" [formControl]="lastNameFilter">-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 <div class="row">
-  <div class="col-md-12">
-    <div class="form-group">
-      <input placeholder="Filter by Lastname" class="form-control" type="text" [formControl]="lastNameFilter">
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div *ngFor="let cust of customers | filter:'lastName':filterCriteria" class="col-sm-4 col-lg-4 col-md-4">
+  <div *ngFor="let cust of customers | async" class="col-sm-4 col-lg-4 col-md-4">
+    <!--<div *ngFor="let cust of customers | filter:'lastName':filterCriteria | async" class="col-sm-4 col-lg-4 col-md-4">-->
     <customer-item [customer]="cust"></customer-item>
   </div>
 </div>

@@ -15,6 +15,7 @@ import CarouselComponent from "./components/carousel/carousel";
 import HomeComponent from "./components/home/home";
 import CustomerDetailComponent from "./components/customer-detail/customer-detail";
 import {FilterPipe} from "./components/pipes/filter-pipe";
+import {SearchEventService} from "./services/search-event-service";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
     declarations:   [ ApplicationComponent, CustomerItemComponent, NavbarComponent,
                       FooterComponent, SearchComponent, CarouselComponent,
                         HomeComponent, CustomerDetailComponent, FilterPipe],
-    providers:      [ CustomerService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    providers:      [ CustomerService, SearchEventService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap:      [ ApplicationComponent ]
 })
 export class AppModule { }
