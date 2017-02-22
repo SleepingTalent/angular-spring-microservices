@@ -8,14 +8,15 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-remap-istanbul'),
       require('angular-cli/plugins/karma')
     ],
     files: [
-      { pattern: './src/test.ts', watched: false }
+      { pattern: './src/app/components/home/article.spec.ts', watched: false }
     ],
     preprocessors: {
-      './src/test.ts': ['angular-cli']
+      './src/app/components/home/article.spec.ts': ['angular-cli']
     },
     mime: {
       'text/x-typescript': ['ts','tsx']
@@ -37,7 +38,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
     singleRun: false
   });
 };
