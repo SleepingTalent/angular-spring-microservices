@@ -1,12 +1,14 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSearch()" novalidate>
   <div class="form-group" [class.has-error]="formGroup.hasError('minlength', 'lastName')">
     <label for="lastName">Customer Search:</label>
-    <input id="lastName" placeholder="Search For Lastname" class="form-control" type="text" formControlName="lastName" minlength="3">
+    <input id="lastName" placeholder="Search For Lastname" class="form-control" type="text" pInputText
+           formControlName="lastName" minlength="3">
     <span class="help-block" [class.hidden]="!formGroup.hasError('minlength', 'lastName')">
       Type at least 3 characters
     </span>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-primary btn-block">Search</button>
+    <button pButton type="submit" label="Search"></button>
   </div>
+  <hr/>
 </form>

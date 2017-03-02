@@ -1,6 +1,19 @@
-<div class="thumbnail">
-  <img src="http://placehold.it/320x150">
-  <div class="caption">
+<!--<div class="thumbnail">-->
+<!--<img src="http://placehold.it/320x150">-->
+<!--<div class="caption">-->
+<!--<div class="form-group">-->
+<!--<label class="control-label pull-left">Customer:</label>-->
+<!--<span class="control-label pull-right"><a [routerLink]="['/customer', customer.id]">{{customer.title}} {{customer.lastName}}</a></span>-->
+<!--</div>-->
+<!--<br/>-->
+<!--<div class="form-group">-->
+<!--<label class="control-label  pull-left">Date Of Birth:</label>-->
+<!--<span class="control-label pull-right">{{customer.dateOfBirth}}</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div style="border: 10em">
+  <p-panel header="{{customer.title}} {{customer.lastName}}" [toggleable]="true">
     <div class="form-group">
       <label class="control-label pull-left">Customer:</label>
       <span class="control-label pull-right"><a [routerLink]="['/customer', customer.id]">{{customer.title}} {{customer.lastName}}</a></span>
@@ -10,5 +23,5 @@
       <label class="control-label  pull-left">Date Of Birth:</label>
       <span class="control-label pull-right">{{customer.dateOfBirth}}</span>
     </div>
-  </div>
+  </p-panel>
 </div>

@@ -1,11 +1,11 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import {RouterModule, Routes} from '@angular/router';
-import { ReactiveFormsModule} from '@angular/forms';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { HttpModule }     from '@angular/http';
-import ApplicationComponent from './components/application/application';
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {RouterModule, Routes} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
+import {LocationStrategy, HashLocationStrategy} from "@angular/common";
+import {AlertModule} from "ng2-bootstrap/ng2-bootstrap";
+import {HttpModule} from "@angular/http";
+import ApplicationComponent from "./components/application/application";
 import CustomerItemComponent from "./components/customer-item/customer-item";
 import NavbarComponent from "./components/navbar/navbar";
 import {CustomerService} from "./services/customer-service";
@@ -16,6 +16,7 @@ import HomeComponent from "./components/home/home";
 import CustomerDetailComponent from "./components/customer-detail/customer-detail";
 import {FilterPipe} from "./components/pipes/filter-pipe";
 import {SearchEventService} from "./services/search-event-service";
+import {ButtonModule, SharedModule, PanelModule, InputTextModule, CarouselModule} from "primeng/primeng";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
   ];
 
 @NgModule({
-    imports:        [ AlertModule.forRoot(), BrowserModule, HttpModule, ReactiveFormsModule, RouterModule.forRoot(routes)],
+  imports: [CarouselModule, InputTextModule, PanelModule, ButtonModule, SharedModule, AlertModule.forRoot(), BrowserModule, HttpModule, ReactiveFormsModule, RouterModule.forRoot(routes)],
     declarations:   [ ApplicationComponent, CustomerItemComponent, NavbarComponent,
                       FooterComponent, SearchComponent, CarouselComponent,
                         HomeComponent, CustomerDetailComponent, FilterPipe],
