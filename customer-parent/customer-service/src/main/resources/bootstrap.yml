@@ -1,0 +1,7 @@
+# Spring Boot properties
+spring:
+  application:
+     name: customer-service  # Service registers under this name
+  cloud:
+    config:
+      uri: http://localhost:2222/config-service/

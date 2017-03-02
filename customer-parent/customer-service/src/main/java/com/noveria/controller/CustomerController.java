@@ -4,6 +4,7 @@ import com.noveria.exception.CustomerNotFoundException;
 import com.noveria.model.customer.Customer;
 import com.noveria.model.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,14 @@ public class CustomerController {
 
     @Autowired
     CustomerRepository customerRepository;
+
+    @Value("${message:Not Loaded From Config Server}")
+    private String message;
+
+    @RequestMapping("/message")
+    public String getMessage() {
+        return message;
+    }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Customer findById(@PathVariable("id") Long id) {
