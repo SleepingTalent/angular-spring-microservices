@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Import;
 public class CustomerWebApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("spring.config.name", "customer-web");
 		SpringApplication.run(CustomerWebApplication.class, args);
 	}
 
