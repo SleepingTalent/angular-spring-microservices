@@ -21,6 +21,7 @@
 		<module>customer-service-acceptance-test</module>
 		<module>customer-web-angular</module>
 		<module>customer-web</module>
+		<module>centralized-config-service</module>
 		<module>eureka-registration-service</module>
 	</modules>
 

@@ -4,7 +4,13 @@ cd eureka-registration-service
 start "eureka-service" mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=1111'
 cd..
 
-TIMEOUT /t 20
+TIMEOUT /t 30
+
+cd centralized-config-service
+start "config-service" mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=2222'
+cd..
+
+TIMEOUT /t 30
 
 cd customer-service
 start "customer-service-1" mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=3333'
