@@ -1,11 +1,12 @@
 <div class="row carousel-holder">
   <div class="col-md-12">
-    <customer-carousel [carouselCustomers]="customers"></customer-carousel>
+    <customer-carousel></customer-carousel>
   </div>
 </div>
 <div></div>
 <div class="row">
   <div *ngFor="let cust of customers | async" class="col-sm-4 col-lg-4 col-md-4">
     <customer-item [customer]="cust"></customer-item>
+    <br/>
   </div>
 </div>

@@ -1,41 +1,21 @@
-<!--<div class="carousel slide" data-ride="carousel">-->
-<!--<ol class="carousel-indicators">-->
-<!--<li class="active"></li>-->
-<!--<li></li>-->
-<!--<li></li>-->
-<!--</ol>-->
-<!--<div class="carousel-inner">-->
-<!--<div class="item active">-->
-<!--<img class="slide-image" src="http://placehold.it/800x300/181ea5/ffffff" alt="">-->
-<!--</div>-->
-<!--<div class="item">-->
-<!--<img class="slide-image" src="http://placehold.it/800x300/2f5609/000000" alt="">-->
-<!--</div>-->
-<!--<div class="item">-->
-<!--<img class="slide-image" src="http://placehold.it/800x300/6e437b/999999" alt="">-->
-<!--</div>-->
-<!--</div>-->
-<!--<a class="left carousel-control" href="javascript:$('.carousel').carousel('prev');">-->
-<!--<span class="glyphicon glyphicon-chevron-left"></span>-->
-<!--</a>-->
-<!--<a class="right carousel-control" href="javascript:$('.carousel').carousel('next');">-->
-<!--<span class="glyphicon glyphicon-chevron-right"></span>-->
-<!--</a>-->
-<!--</div>-->
-<p-carousel headerText="Customers" [value]="carouselCustomers" easing="easeOutStrong">
+<p-carousel [value]="customers" numVisible="2">
   <template let-customer pTemplate="item">
     <div class="ui-grid ui-grid-responsive">
       <div class="ui-grid-row">
-        <div class="ui-grid-col-6">Title</div>
+        <div class="ui-grid-col-6"><strong>Title</strong></div>
         <div class="ui-grid-col-6">{{customer.title}}</div>
       </div>
       <div class="ui-grid-row">
-        <div class="ui-grid-col-6">First name</div>
+        <div class="ui-grid-col-6"><strong>First name</strong></div>
         <div class="ui-grid-col-6">{{customer.firstName}}</div>
       </div>
       <div class="ui-grid-row">
-        <div class="ui-grid-col-6">Last name</div>
+        <div class="ui-grid-col-6"><strong>Last name</strong></div>
         <div class="ui-grid-col-6">{{customer.lastName}}</div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6"><strong>Occupation</strong></div>
+        <div class="ui-grid-col-6">{{customer.description}}</div>
       </div>
     </div>
   </template>
