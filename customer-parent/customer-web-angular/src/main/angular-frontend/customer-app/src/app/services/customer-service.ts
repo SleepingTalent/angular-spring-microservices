@@ -28,29 +28,18 @@ export class CustomerService {
     let headers = new Headers();
     headers.append("Authorization", encodedAuth);
 
-    console.log('Headers has Authorization Key: ' + headers.has('Authorization'));
-    console.log('Headers Authorization Value: ' + headers.get('Authorization'));
-    console.log('Headers Json: ' + headers.toJSON());
-
     return headers;
   }
 
   getCustomers() : Observable<Customer[]>{
     console.log('getCustomers');
-    //let options = new RequestOptions({ headers: this.getHeaders(), withCredentials: true });
 
-     //return this.http.get(this.findAllUrl, options)
     return this.http.get(this.findAllUrl, {headers: this.getHeaders()})
       .map((res:Response) => res.json())
       .catch(this.handleServerError);
   }
 
   private handleServerError(error : Response) {
-    // console.log('Error : ' + error);
-    // console.log('Error Status : ' + error.status);
-    // console.log('Error StatusText: ' + error.statusText);
-    //
-    // console.log('Headers: ' + error.headers.values());
     return Observable.throw(error.json().error || 'Server error')
   }
 
