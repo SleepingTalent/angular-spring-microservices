@@ -1,9 +1,0 @@
-# Spring properties
-spring:
-  application:
-     name: customer-service-test  # Service registers under this name
-
-# HTTP Server
-server:
-  contextPath: /customer-service
-  port: 3334   # HTTP (Tomcat) port

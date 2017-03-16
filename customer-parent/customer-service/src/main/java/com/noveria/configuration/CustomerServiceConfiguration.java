@@ -1,6 +1,7 @@
 package com.noveria.configuration;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -8,6 +9,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.sql.DataSource;
 import java.util.logging.Logger;
@@ -18,7 +25,7 @@ import java.util.logging.Logger;
 @PropertySource("classpath:db-config.properties")
 public class CustomerServiceConfiguration {
 
-    protected Logger logger = Logger.getLogger(getClass().getName());
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     /**
      * Creates an in-memory database populated with test data for fast testing
@@ -38,6 +45,32 @@ public class CustomerServiceConfiguration {
         return dataSource;
     }
 
+//    @Bean
+//    public FilterRegistrationBean corsFilter() {
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.addAllowedOrigin("*");
+//        config.addAllowedHeader("*");
+//        config.addAllowedHeader("OPTIONS");
+//        config.addAllowedHeader("HEAD");
+//        config.addAllowedHeader("GET");
+//        config.addAllowedHeader("PUT");
+//        config.addAllowedHeader("POST");
+//        config.addAllowedHeader("DELETE");
+//        config.addAllowedHeader("PATCH");
+//
+//        source.registerCorsConfiguration("/**", config);
+//
+//        //return new CorsFilter(source);
+//
+//        final FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+//        bean.setOrder(0);
+//        return bean;
+//
+//    }
+
 //    DataSource if using mySql db
 
 //    @Bean
@@ -52,7 +85,6 @@ public class CustomerServiceConfiguration {
 //
 //        return dataSource;
 //    }
-
 
     private void runSanityCheck(DataSource dataSource) {
         String sql = "SELECT count(*) from CUSTOMERS";

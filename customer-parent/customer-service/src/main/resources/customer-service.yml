@@ -3,6 +3,11 @@ spring:
   application:
      name: customer-service  # Service registers under this name
 
+security:
+  user:
+    name: guest
+    password: guest123
+
 info:
   app:
     name: customer-service

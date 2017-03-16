@@ -2,12 +2,15 @@ package com.noveria.cukes.helper;
 
 import com.noveria.cukes.runtime.RuntimeState;
 import com.noveria.model.customer.Customer;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
+import org.springframework.util.MultiValueMap;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,21 +42,36 @@ public class RestHelper {
     }
 
     public Customer findById(Long id) {
-        ResponseEntity<Customer> response = restTemplate.getForEntity(buildFindByIdUrl(id), Customer.class);
+        HttpEntity<?> httpEntity = new HttpEntity<>(createAuthHeader());
+
+        ResponseEntity<Customer> response = restTemplate.exchange(buildFindByIdUrl(id), HttpMethod.GET, httpEntity, Customer.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         return response.getBody();
     }
 
+    private HttpHeaders createAuthHeader() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        String auth = "guest:guest123";
+
+        byte[] encodedAuth = Base64.encodeBase64(auth.getBytes());
+        requestHeaders.add("Authorization","Basic " + new String(encodedAuth));
+        return requestHeaders;
+    }
+
     public List<Customer> findByLastName(String lastName) {
-        ResponseEntity<Customer[]> response = restTemplate.getForEntity(buildFindByLastNameUrl(lastName), Customer[].class);
+        HttpEntity<?> httpEntity = new HttpEntity<>(createAuthHeader());
+
+        ResponseEntity<Customer[]> response = restTemplate.exchange(buildFindByLastNameUrl(lastName), HttpMethod.GET, httpEntity, Customer[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         return Arrays.asList(response.getBody());
     }
 
     public List<Customer> findAll() {
-        ResponseEntity<Customer[]> response = restTemplate.getForEntity(buildFindAll(), Customer[].class);
+        HttpEntity<?> httpEntity = new HttpEntity<>(createAuthHeader());
+
+        ResponseEntity<Customer[]> response = restTemplate.exchange(buildFindAll(), HttpMethod.GET, httpEntity, Customer[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         return Arrays.asList(response.getBody());
